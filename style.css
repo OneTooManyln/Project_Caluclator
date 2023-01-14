@@ -1,0 +1,18 @@
+body {
+    background-color: rgb(114, 114, 114);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+.calculator {
+    border-radius: .8rem;
+    border: .25rem solid rgb(59, 59, 59);
+    background-color: rgb(59, 59, 59);
+    width: 27rem;
+    height: 40rem;
+}
