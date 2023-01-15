@@ -11,8 +11,20 @@ body {
 
 .calculator {
     border-radius: .8rem;
-    border: .25rem solid rgb(59, 59, 59);
+    border: .2rem solid rgb(27, 27, 27);
     background-color: rgb(59, 59, 59);
     width: 27rem;
     height: 40rem;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.numbers {
+    border-radius: .8rem;
+    border: .2rem solid rgb(27, 27, 27);
+    width: 5rem;
+    height: 5rem;
 }
