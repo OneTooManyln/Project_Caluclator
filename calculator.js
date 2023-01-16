@@ -29,3 +29,17 @@ function operate(oper, num1, num2) {
             return 'wrong';
     }   
 } console.log(operate('plus', 10, 10));
+
+const btn = document.querySelectorAll('button[data-number');
+const div = document.querySelector('.screen-display');
+
+
+
+btn.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        div.textContent = (btn.getAttribute('data-number'));
+
+    })
+    
+});
+
