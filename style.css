@@ -21,15 +21,21 @@ body {
     background-color: white;
     border: .125rem solid rgb(27, 27, 27);
     border-radius: .31rem;
-    margin-bottom: 2.5rem;
-    padding: 3.5rem 3.5rem;
+    margin-bottom: 1.31rem;
+    padding: .625rem 2.25rem;
     text-align: right;
+}
+
+.screen-display {
+    height: 6rem;
+    font-size: 40px;
+
 }
 
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: .2rem;
+    grid-gap: .69em;
 
 }
 
