@@ -30,15 +30,17 @@ function operate(oper, num1, num2) {
     }   
 } console.log(operate('plus', 10, 10));
 
-const btn = document.querySelectorAll('button[data-number');
+const btn = document.querySelectorAll('button[data-number]');
 const div = document.querySelector('.screen-display');
 
-
-
 btn.forEach((btn) => {
-    btn.addEventListener('click', () => {
-        div.textContent = (btn.getAttribute('data-number'));
-
+    btn.addEventListener('click', function populate() {
+        if(div.textContent == '0') {
+            div.textContent = '';
+            div.textContent += (btn.getAttribute('data-number'));
+        } else {
+            div.textContent += (btn.getAttribute('data-number'));
+        }
     })
     
 });
