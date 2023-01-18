@@ -34,12 +34,16 @@ const btn = document.querySelectorAll('button[data-number]');
 const div = document.querySelector('.screen-display');
 
 btn.forEach((btn) => {
-    btn.addEventListener('click', function populate() {
+    btn.addEventListener('click', function populate(n) {
         if(div.textContent == '0') {
             div.textContent = '';
             div.textContent += (btn.getAttribute('data-number'));
+            n = div.textContent;
+            console.log(n);
         } else {
             div.textContent += (btn.getAttribute('data-number'));
+            n = div.textContent;
+            console.log(n);
         }
     })
     
