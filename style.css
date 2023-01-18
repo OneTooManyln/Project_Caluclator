@@ -24,6 +24,7 @@ body {
     margin-bottom: 1.31rem;
     padding: .625rem 2.25rem;
     text-align: right;
+    overflow-wrap: break-word;
 }
 
 .screen-display {
