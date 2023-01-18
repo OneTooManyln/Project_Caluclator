@@ -15,16 +15,16 @@ function divide(a, b) {
     return a / b;
 }
 
-function operate(oper, num1, num2) {
+function operate(oper, a, b) {
     switch(true) {
         case (oper === '+'):
-            return add(num1, num2);
+            return add(a, b);
         case (oper === '-'):
-            return subtract(num1, num2);
+            return subtract(a, b);
         case (oper === '*'):
-            return multiply(num1, num2);
+            return multiply(a, b);
         case (oper === '/'):
-            return divide(num1, num2);
+            return divide(a, b);
         default:
             return 'wrong';
     }   
@@ -39,11 +39,9 @@ btn.forEach((btn) => {
             div.textContent = '';
             div.textContent += (btn.getAttribute('data-number'));
             n = div.textContent;
-            console.log(n);
         } else {
             div.textContent += (btn.getAttribute('data-number'));
             n = div.textContent;
-            console.log(n);
         }
     })
 
@@ -59,6 +57,12 @@ const opBtn = document.querySelectorAll('button[data-operator]');
 
 opBtn.forEach((opBtn) => {
     opBtn.addEventListener('click', () => {
-        oper = opBtn.getAttribute('data-operator');
+        //oper = opBtn.getAttribute('data-operator');
+        if(div.textContent == '0') {
+            div.textContent = '';
+            div.textContent += (opBtn.getAttribute('data-operator'));
+        } else {
+            div.textContent += (opBtn.getAttribute('data-operator'));
+        }
     })
 });
