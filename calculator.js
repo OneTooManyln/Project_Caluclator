@@ -17,13 +17,13 @@ function divide(a, b) {
 
 function operate(oper, num1, num2) {
     switch(true) {
-        case (oper === 'plus'):
+        case (oper === '+'):
             return add(num1, num2);
-        case (oper === 'sub'):
+        case (oper === '-'):
             return subtract(num1, num2);
-        case (oper === 'mult'):
+        case (oper === '*'):
             return multiply(num1, num2);
-        case (oper === 'div'):
+        case (oper === '/'):
             return divide(num1, num2);
         default:
             return 'wrong';
