@@ -54,3 +54,11 @@ const clear = document.querySelector('#clear');
 clear.addEventListener('click', function clear() {
     div.textContent = '0';
 });
+
+const opBtn = document.querySelectorAll('button[data-operator]');
+
+opBtn.forEach((opBtn) => {
+    opBtn.addEventListener('click', () => {
+        oper = opBtn.getAttribute('data-operator');
+    })
+});
