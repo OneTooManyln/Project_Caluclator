@@ -46,6 +46,11 @@ btn.forEach((btn) => {
             console.log(n);
         }
     })
-    
+
 });
 
+const clear = document.querySelector('#clear');
+
+clear.addEventListener('click', function clear() {
+    div.textContent = '0';
+});
