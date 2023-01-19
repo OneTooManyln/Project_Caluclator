@@ -28,7 +28,7 @@ function operate(oper, a, b) {
         default:
             return 'wrong';
     }   
-} console.log(operate('plus', 10, 10));
+}
 
 const btn = document.querySelectorAll('button[data-number]');
 const div = document.querySelector('.screen-display');
@@ -58,11 +58,12 @@ const opBtn = document.querySelectorAll('button[data-operator]');
 opBtn.forEach((opBtn) => {
     opBtn.addEventListener('click', () => {
         //oper = opBtn.getAttribute('data-operator');
+                
         if(div.textContent == '0') {
             div.textContent = '';
-            div.textContent += (opBtn.getAttribute('data-operator'));
+            div.textContent += (' ' + (opBtn.getAttribute('data-operator')) + ' ');
         } else {
-            div.textContent += (opBtn.getAttribute('data-operator'));
+            div.textContent += (' ' + (opBtn.getAttribute('data-operator')) + ' ');
         }
     })
 });
