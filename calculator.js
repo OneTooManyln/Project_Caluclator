@@ -30,28 +30,19 @@ function operate(oper, a, b) {
     }   
 }
 
-const btn = document.querySelectorAll('button[data-number]');
+const numBtn = document.querySelectorAll('button[data-number]');
+const btn = document.querySelectorAll('button');
 const div = document.querySelector('.screen-display');
 
-btn.forEach((btn) => {
-    btn.addEventListener('click', function populate(n) {
-        if(div.textContent == '0') {
-            div.textContent = '';
-            div.textContent += (btn.getAttribute('data-number'));
-            n = div.textContent;
-        } else {
-            div.textContent += (btn.getAttribute('data-number'));
-            n = div.textContent;
-        }
-    })
+numBtn.forEach((numBtn) => {
+    numBtn.addEventListener('click', () => populate(numBtn.getAttribute('data-number')))
+})
 
-});
-
-const clear = document.querySelector('#clear');
-
-clear.addEventListener('click', function clear() {
-    div.textContent = '0';
-});
+function populate(n) {
+    if(div.textContent == '0') 
+        div.textContent = '';
+        div.textContent += n;    
+}
 
 const opBtn = document.querySelectorAll('button[data-operator]');
 
@@ -66,4 +57,10 @@ opBtn.forEach((opBtn) => {
             div.textContent += (' ' + (opBtn.getAttribute('data-operator')) + ' ');
         }
     })
+});
+
+const clear = document.querySelector('#clear');
+
+clear.addEventListener('click', function clear() {
+    div.textContent = '0';
 });
