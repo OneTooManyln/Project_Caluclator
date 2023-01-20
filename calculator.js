@@ -59,8 +59,17 @@ opBtn.forEach((opBtn) => {
         //    div.textContent += (' ' + (opBtn.getAttribute('data-operator')) + ' ');
         //}
 
-function operation(operator) {
+function operation(oper) {
+    firstOperand = display.textContent;
+    operation = oper;
+    clear();
+    evaluateOperation();
+}
 
+function evaluateOperation() {
+    secondOperand = display.textContent;
+    operate(operation, firstOperand, secondOperand);
+    result.textContent = firstOperand(operation) +  + secondOperand;
 }
 
 const clear = document.querySelector('#clear');
