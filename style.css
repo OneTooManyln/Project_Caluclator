@@ -28,9 +28,14 @@ body {
 }
 
 .screen-display {
-    height: 6rem;
+    height: 3rem;
     font-size: 40px;
 
+}
+
+.screen-result {
+    height: 3rem;
+    font-size: 40px;
 }
 
 .buttons {
