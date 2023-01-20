@@ -32,35 +32,39 @@ function operate(oper, a, b) {
 
 const numBtn = document.querySelectorAll('button[data-number]');
 const btn = document.querySelectorAll('button');
-const div = document.querySelector('.screen-display');
+const display = document.querySelector('.screen-display');
+const result = document.querySelector('.screen-display');
 
 numBtn.forEach((numBtn) => {
     numBtn.addEventListener('click', () => populate(numBtn.getAttribute('data-number')))
 })
 
 function populate(n) {
-    if(div.textContent == '0') 
-        div.textContent = '';
-        div.textContent += n;    
+    if(display.textContent == '0') 
+        display.textContent = '';
+        display.textContent += n;    
 }
 
 const opBtn = document.querySelectorAll('button[data-operator]');
 
 opBtn.forEach((opBtn) => {
-    opBtn.addEventListener('click', () => {
+    opBtn.addEventListener('click', () => operation(opBtn.getAttribute('data-operator')))
+})
         //oper = opBtn.getAttribute('data-operator');
                 
-        if(div.textContent == '0') {
-            div.textContent = '';
-            div.textContent += (' ' + (opBtn.getAttribute('data-operator')) + ' ');
-        } else {
-            div.textContent += (' ' + (opBtn.getAttribute('data-operator')) + ' ');
-        }
-    })
-});
+        //if(div.textContent == '0') {
+        //    div.textContent = '';
+        //    div.textContent += (' ' + (opBtn.getAttribute('data-operator')) + ' ');
+        //} else {
+        //    div.textContent += (' ' + (opBtn.getAttribute('data-operator')) + ' ');
+        //}
+
+function operation(operator) {
+
+}
 
 const clear = document.querySelector('#clear');
 
 clear.addEventListener('click', function clear() {
-    div.textContent = '0';
+    display.textContent = '0';
 });
