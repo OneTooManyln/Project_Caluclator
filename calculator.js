@@ -48,16 +48,14 @@ function populate(n) {
 const opBtn = document.querySelectorAll('button[data-operator]');
 
 opBtn.forEach((opBtn) => {
-    opBtn.addEventListener('click', () => operation(opBtn.getAttribute('data-operator')))
+    opBtn.addEventListener('click', () => { 
+        if(display.textContent == '0')
+        display.textContent = ''
+        display.textContent += ' ' + opBtn.textContent + ' ';
+        
+        operation(opBtn.getAttribute('data-operator'))
+    })
 })
-        //oper = opBtn.getAttribute('data-operator');
-                
-        //if(div.textContent == '0') {
-        //    div.textContent = '';
-        //    div.textContent += (' ' + (opBtn.getAttribute('data-operator')) + ' ');
-        //} else {
-        //    div.textContent += (' ' + (opBtn.getAttribute('data-operator')) + ' ');
-        //}
 
 function operation(oper) {
     firstOperand = display.textContent;
