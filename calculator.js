@@ -31,11 +31,12 @@ function operate(oper, a, b) {
 }
 
 const numBtn = document.querySelectorAll('button[data-number]');
+const opBtn = document.querySelectorAll('button[data-operator]');
 const btn = document.querySelectorAll('button');
 const display = document.querySelector('.screen-display');
-const result = document.querySelector('.screen-display');
-const opBtn = document.querySelectorAll('button[data-operator]');
+const result = document.querySelector('.screen-result');
 const clear = document.querySelector('#clear');
+const equalsBtn = document.querySelector('#equal')
 
 numBtn.forEach((numBtn) => {
     numBtn.addEventListener('click', () => populateNumbers(numBtn.getAttribute('data-number')))
