@@ -42,13 +42,7 @@ numBtn.forEach((numBtn) => {
 })
 
 opBtn.forEach((opBtn) => {
-    opBtn.addEventListener('click', () => { 
-        if(display.textContent == '0')
-        display.textContent = ''
-        display.textContent += ' ' + opBtn.textContent + ' ';
-        
-        //operation(opBtn.getAttribute('data-operator'))
-    })
+    opBtn.addEventListener('click', () => populateOperators(opBtn.textContent))
 })
 
 //Instead of calling the function operation when a operator is clicked, it should instead be called when
@@ -61,6 +55,12 @@ function populateNumbers(n) {
     if(display.textContent == '0') 
         display.textContent = '';
         display.textContent += n;    
+}
+
+function populateOperators (o) {
+    if(display.textContent == '0')
+        display.textContent = ''
+        display.textContent += ' ' + o + ' ';
 }
 
 function operation(oper) {
