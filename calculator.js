@@ -64,11 +64,13 @@ function populateOperators (o) {
         display.textContent += ' ' + o + ' ';
 }
 
-function operation(oper) {
-    firstOperand = display.textContent;
-    operation = oper;
-    clear();
-    evaluateOperation();
+equalsBtn.addEventListener('click', () => {
+    splitOperation();
+})
+
+function splitOperation() {
+    let splitDisplay = display.textContent.split(/[+-/*]/);
+    console.log(splitDisplay);
 }
 
 function evaluateOperation() {
