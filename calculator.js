@@ -30,6 +30,25 @@ function operate(oper, a, b) {
     }   
 }
 
+function chooseOperator(string) {
+    switch(true) {
+        case (string.includes('+')):
+            findOperator = '+';
+            break;
+        case (string.includes('*')):
+            findOperator = '*';
+            break;
+        case (string.includes('/')):
+            findOperator = '/';
+            break;
+        case (string.includes('-')):
+            findOperator = '-';
+            break;
+        default:
+            return 'ERROR'    
+    }
+}
+
 const numBtn = document.querySelectorAll('button[data-number]');
 const opBtn = document.querySelectorAll('button[data-operator]');
 const btn = document.querySelectorAll('button');
@@ -37,6 +56,8 @@ const display = document.querySelector('.screen-display');
 const result = document.querySelector('.screen-result');
 const clear = document.querySelector('#clear');
 const equalsBtn = document.querySelector('#equal')
+
+let findOperator = '';
 
 numBtn.forEach((numBtn) => {
     numBtn.addEventListener('click', () => populateNumbers(numBtn.getAttribute('data-number')))
@@ -64,13 +85,14 @@ function populateOperators (o) {
         display.textContent += ' ' + o + ' ';
 }
 
-equalsBtn.addEventListener('click', () => {
-    splitOperation();
-})
+equalsBtn.addEventListener('click', () => splitOperation())
 
 function splitOperation() {
+    findOperator = display.textContent;
+    chooseOperator(findOperator);
     let splitDisplay = display.textContent.split(/[+-/*]/);
-    console.log(splitDisplay);
+    console.log(findOperator);
+    console.table(splitDisplay);
 }
 
 function evaluateOperation() {
