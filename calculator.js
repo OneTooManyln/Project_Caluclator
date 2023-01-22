@@ -35,9 +35,10 @@ const btn = document.querySelectorAll('button');
 const display = document.querySelector('.screen-display');
 const result = document.querySelector('.screen-display');
 const opBtn = document.querySelectorAll('button[data-operator]');
+const clear = document.querySelector('#clear');
 
 numBtn.forEach((numBtn) => {
-    numBtn.addEventListener('click', () => populate(numBtn.getAttribute('data-number')))
+    numBtn.addEventListener('click', () => populateNumbers(numBtn.getAttribute('data-number')))
 })
 
 opBtn.forEach((opBtn) => {
@@ -56,7 +57,7 @@ opBtn.forEach((opBtn) => {
 //  firstOperand, operator, and secondOperand
 //the function evaluateOperation would then be called using the new values defined above.
 
-function populate(n) {
+function populateNumbers(n) {
     if(display.textContent == '0') 
         display.textContent = '';
         display.textContent += n;    
@@ -74,8 +75,6 @@ function evaluateOperation() {
     operate(operation, firstOperand, secondOperand);
     result.textContent = firstOperand(operation) +  + secondOperand;
 }
-
-const clear = document.querySelector('#clear');
 
 clear.addEventListener('click', function clear() {
     display.textContent = '0';
