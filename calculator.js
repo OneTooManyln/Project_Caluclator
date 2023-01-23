@@ -58,6 +58,10 @@ const clear = document.querySelector('#clear');
 const equalsBtn = document.querySelector('#equal')
 
 let findOperator = '';
+let firstOperand = '';
+let secondOperand = '';
+let splitDisplay = '';
+let toNumber = '';
 
 numBtn.forEach((numBtn) => {
     numBtn.addEventListener('click', () => populateNumbers(numBtn.getAttribute('data-number')))
@@ -90,15 +94,17 @@ equalsBtn.addEventListener('click', () => splitOperation())
 function splitOperation() {
     findOperator = display.textContent;
     chooseOperator(findOperator);
-    let splitDisplay = display.textContent.split(/[+-/*]/);
+    splitDisplay = display.textContent.split(/[+-/*]/);
     console.log(findOperator);
     console.table(splitDisplay);
+    evaluateOperation();
 }
 
 function evaluateOperation() {
-    secondOperand = display.textContent;
-    operate(operation, firstOperand, secondOperand);
-    result.textContent = firstOperand(operation) +  + secondOperand;
+    toNumber = splitDisplay.map(Number);
+    firstOperand = toNumber[0];
+    secondOperand = toNumber[1];
+    result.textContent = operate(findOperator, firstOperand, secondOperand);
 }
 
 clear.addEventListener('click', function clear() {
