@@ -24,7 +24,10 @@ function operate(oper, a, b) {
         case (oper === '*'):
             return multiply(a, b);
         case (oper === '/'):
-            return divide(a, b);
+            if (b === 0) {
+                return 'ERROR'
+            } else {return divide(a, b);
+            }
         default:
             return 'wrong';
     }   
@@ -109,4 +112,5 @@ function evaluateOperation() {
 
 clear.addEventListener('click', function clear() {
     display.textContent = '0';
+    result.textContent = '';
 });
