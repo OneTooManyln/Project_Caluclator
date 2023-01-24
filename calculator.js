@@ -69,7 +69,7 @@ let splitDisplay = '';
 let toNumber = '';
 
 numBtn.forEach((numBtn) => {
-    numBtn.addEventListener('click', () => populateNumbers(numBtn.getAttribute('data-number')))
+    numBtn.addEventListener('click', () => populateNumbers(numBtn.textContent))
 })
 
 opBtn.forEach((opBtn) => {
@@ -95,6 +95,9 @@ function populateOperators (o) {
         display.textContent = ''
         display.textContent += ' ' + o + ' ';
 }
+
+//populateDecimal is not working ass intended. Code fore populate functions will be rewritten to
+// no longer use .split to assisgn values to secondOperand, firstOperand, and findOperator
 
 function populateDecimal(d) {
     if(display.textContent == '0')
