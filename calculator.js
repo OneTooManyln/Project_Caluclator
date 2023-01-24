@@ -26,7 +26,8 @@ function operate(oper, a, b) {
         case (oper === '/'):
             if (b === 0) {
                 return 'ERROR'
-            } else {return divide(a, b);
+            } else {
+                return divide(a, b);
             }
         default:
             return 'wrong';
@@ -58,7 +59,8 @@ const btn = document.querySelectorAll('button');
 const display = document.querySelector('.screen-display');
 const result = document.querySelector('.screen-result');
 const clear = document.querySelector('#clear');
-const equalsBtn = document.querySelector('#equal')
+const equalsBtn = document.querySelector('#equal');
+const decBtn = document.querySelector('#decimal');
 
 let findOperator = '';
 let firstOperand = '';
@@ -73,6 +75,8 @@ numBtn.forEach((numBtn) => {
 opBtn.forEach((opBtn) => {
     opBtn.addEventListener('click', () => populateOperators(opBtn.textContent))
 })
+
+decBtn.addEventListener('click', () => populateDecimal(decBtn.textContent));
 
 //Instead of calling the function operation when a operator is clicked, it should instead be called when
 //the equal's button is clicked.
@@ -90,6 +94,12 @@ function populateOperators (o) {
     if(display.textContent == '0')
         display.textContent = ''
         display.textContent += ' ' + o + ' ';
+}
+
+function populateDecimal(d) {
+    if(display.textContent == '0')
+    display.textContent = '';
+    display.textContent += d;
 }
 
 equalsBtn.addEventListener('click', () => splitOperation())
