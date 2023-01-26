@@ -65,8 +65,6 @@ const decBtn = document.querySelector('#decimal');
 let findOperator = '';
 let firstOperand = '';
 let secondOperand = '';
-let splitDisplay = '';
-let toNumber = '';
 
 numBtn.forEach((numBtn) => {
     numBtn.addEventListener('click', () => populateNumbers(numBtn.textContent))
@@ -77,6 +75,13 @@ opBtn.forEach((opBtn) => {
 })
 
 decBtn.addEventListener('click', () => populateDecimal(decBtn.textContent));
+
+equalsBtn.addEventListener('click', () => operate(findOperator, firstOperand, secondOperand))
+
+clear.addEventListener('click', function clear() {
+    display.textContent = '0';
+    result.textContent = '';
+});
 
 //Instead of calling the function operation when a operator is clicked, it should instead be called when
 //the equal's button is clicked.
@@ -105,26 +110,3 @@ function populateDecimal(d) {
     display.textContent = '';
     display.textContent += d;
 }
-
-equalsBtn.addEventListener('click', () => splitOperation())
-
-function splitOperation() {
-    findOperator = display.textContent;
-    chooseOperator(findOperator);
-    splitDisplay = display.textContent.split(/[+-/*]/);
-    console.log(findOperator);
-    console.table(splitDisplay);
-    evaluateOperation();
-}
-
-function evaluateOperation() {
-    toNumber = splitDisplay.map(Number);
-    firstOperand = toNumber[0];
-    secondOperand = toNumber[1];
-    result.textContent = operate(findOperator, firstOperand, secondOperand);
-}
-
-clear.addEventListener('click', function clear() {
-    display.textContent = '0';
-    result.textContent = '';
-});
