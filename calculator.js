@@ -85,9 +85,10 @@ decBtn.addEventListener('click', () => populateDecimal(decBtn.textContent));
 //the function evaluateOperation would then be called using the new values defined above.
 
 function populateNumbers(n) {
-    if(display.textContent == '0') 
-        display.textContent = '';
-        display.textContent += n;    
+    if(firstOperand.length <= 12) {
+        firstOperand += n;
+        display.textContent = firstOperand;
+    }   
 }
 
 function populateOperators (o) {
