@@ -65,6 +65,7 @@ const decBtn = document.querySelector('#decimal');
 let findOperator = '';
 let firstOperand = '';
 let secondOperand = '';
+let previousDisplay = '';
 
 numBtn.forEach((numBtn) => {
     numBtn.addEventListener('click', () => populateNumbers(numBtn.textContent))
@@ -93,13 +94,13 @@ function populateNumbers(n) {
     if(firstOperand.length <= 12) {
         firstOperand += n;
         display.textContent = firstOperand;
-    }   
+    }
 }
 
 function populateOperators (o) {
-    if(display.textContent == '0')
-        display.textContent = ''
-        display.textContent += ' ' + o + ' ';
+    findOperator = o;
+    previousDisplay = firstOperand + ' ' + findOperator;
+    display.textContent = previousDisplay;
 }
 
 //populateDecimal is not working ass intended. Code fore populate functions will be rewritten to
