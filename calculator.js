@@ -73,12 +73,6 @@ clear.addEventListener('click', function clear() {
     result.textContent = '';
 });
 
-//Instead of calling the function operation when a operator is clicked, it should instead be called when
-//the equal's button is clicked.
-//When clicked, a function will split the operation into three seperate value:
-//  firstOperand, operator, and secondOperand
-//the function evaluateOperation would then be called using the new values defined above.
-
 function populateNumbers(n) {
     if(firstOperand.length <= 12 && !display.textContent.includes('+') && 
     !display.textContent.includes('-') && !display.textContent.includes('*') && 
@@ -97,9 +91,6 @@ function populateOperators (o) {
     display.textContent = previousDisplay;
     console.log(firstOperand);
 }
-
-//populateDecimal is not working ass intended. Code fore populate functions will be rewritten to
-// no longer use .split to assisgn values to secondOperand, firstOperand, and findOperator
 
 function populateDecimal(d) {
     if(display.textContent == '0')
