@@ -15,42 +15,31 @@ function divide(a, b) {
     return a / b;
 }
 
-function operate(oper, a, b) {
+function operate(oper) {
+    firstOperand = Number(firstOperand);
+    secondOperand = Number(secondOperand);
+    console.log(firstOperand);
+    console.log(secondOperand);
     switch(true) {
         case (oper === '+'):
-            return add(a, b);
+            result.textContent = add(firstOperand, secondOperand);
+            break;
         case (oper === '-'):
-            return subtract(a, b);
+            result.textContent = subtract(firstOperand, secondOperand);
+            break;
         case (oper === '*'):
-            return multiply(a, b);
+            result.textContent = multiply(firstOperand, secondOperand);
+            break;
         case (oper === '/'):
             if (b === 0) {
-                return 'ERROR'
+                result.textContent = 'ERROR';
             } else {
-                return divide(a, b);
+                result.textContent = divide(firstOperand, secondOperand);
             }
+            break;
         default:
             return 'wrong';
     }   
-}
-
-function chooseOperator(string) {
-    switch(true) {
-        case (string.includes('+')):
-            findOperator = '+';
-            break;
-        case (string.includes('*')):
-            findOperator = '*';
-            break;
-        case (string.includes('/')):
-            findOperator = '/';
-            break;
-        case (string.includes('-')):
-            findOperator = '-';
-            break;
-        default:
-            return 'ERROR'    
-    }
 }
 
 const numBtn = document.querySelectorAll('button[data-number]');
@@ -68,16 +57,16 @@ let secondOperand = '';
 let previousDisplay = '';
 
 numBtn.forEach((numBtn) => {
-    numBtn.addEventListener('click', () => populateNumbers(numBtn.textContent))
+    numBtn.addEventListener('click', () => populateNumbers(numBtn.textContent));
 })
 
 opBtn.forEach((opBtn) => {
-    opBtn.addEventListener('click', () => populateOperators(opBtn.textContent))
+    opBtn.addEventListener('click', () => populateOperators(opBtn.textContent));
 })
 
 decBtn.addEventListener('click', () => populateDecimal(decBtn.textContent));
 
-equalsBtn.addEventListener('click', () => operate(findOperator, firstOperand, secondOperand))
+equalsBtn.addEventListener('click', () => operate(findOperator));
 
 clear.addEventListener('click', function clear() {
     display.textContent = '0';
@@ -106,6 +95,7 @@ function populateOperators (o) {
     findOperator = o;
     previousDisplay = firstOperand + ' ' + findOperator;
     display.textContent = previousDisplay;
+    console.log(firstOperand);
 }
 
 //populateDecimal is not working ass intended. Code fore populate functions will be rewritten to
