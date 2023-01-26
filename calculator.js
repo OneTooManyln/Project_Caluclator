@@ -91,9 +91,14 @@ clear.addEventListener('click', function clear() {
 //the function evaluateOperation would then be called using the new values defined above.
 
 function populateNumbers(n) {
-    if(firstOperand.length <= 12) {
+    if(firstOperand.length <= 12 && !display.textContent.includes('+') && 
+    !display.textContent.includes('-') && !display.textContent.includes('*') && 
+    !display.textContent.includes('/')) {
         firstOperand += n;
         display.textContent = firstOperand;
+    } else {
+        secondOperand += n;
+        display.textContent = previousDisplay + ' ' + secondOperand;
     }
 }
 
