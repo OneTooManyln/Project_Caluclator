@@ -22,24 +22,27 @@ function operate(oper) {
     console.log(secondOperand);
     switch(true) {
         case (oper === '+'):
-            result.textContent = add(firstOperand, secondOperand);
+            operationResult = add(firstOperand, secondOperand);
             break;
         case (oper === '-'):
-            result.textContent = subtract(firstOperand, secondOperand);
+            operationResult = subtract(firstOperand, secondOperand);
             break;
         case (oper === '*'):
-            result.textContent = multiply(firstOperand, secondOperand);
+            operationResult = multiply(firstOperand, secondOperand);
             break;
         case (oper === '/'):
-            if (b === 0) {
-                result.textContent = 'ERROR';
+            if (secondOperand === 0) {
+                operationResult = 'ERROR';
             } else {
-                result.textContent = divide(firstOperand, secondOperand);
+                operationResult = divide(firstOperand, secondOperand);
             }
             break;
         default:
             return 'wrong';
-    }   
+    }
+    operationResult = roundResult(operationResult);
+    operationResult = operationResult.toString();
+    displayResult();   
 }
 
 const numBtn = document.querySelectorAll('button[data-number]');
@@ -55,6 +58,7 @@ let findOperator = '';
 let firstOperand = '';
 let secondOperand = '';
 let previousDisplay = '';
+let operationResult = '';
 
 numBtn.forEach((numBtn) => {
     numBtn.addEventListener('click', () => populateNumbers(numBtn.textContent));
@@ -101,4 +105,18 @@ function clearDisplay() {
     previousDisplay = '';
     firstOperand = '';
     secondOperand = '';
+}
+
+function roundResult(number) {
+    return Math.round(number * 100000) / 100000;
+}
+
+function displayResult() {
+    display.textContent = '';
+    console.log(operationResult);
+    if (operationResult.length <= 12) {
+        result.textContent = operationResult;
+    } else {
+        result.textContent = operationResult.slice(0, 12) + '..';
+    }
 }
