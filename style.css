@@ -1,6 +1,8 @@
 body {
-    background-color:lightgrey
-}
+    background-color:rgb(194, 216, 223);
+    font-family: "Inconsolata", monospace;
+    font-weight: 600;
+}    
 
 .container {
     display: flex;
@@ -10,20 +12,20 @@ body {
 }
 
 .calculator {
-    border-radius: .31em;
-    border: .125rem solid rgb(27, 27, 27);
-    background-color: rgb(128, 128, 128);
-    padding: 1.5rem;
+    border-radius: .21em;
+    border: .125rem solid white;
+    background-color: whitesmoke;
+    padding: 10px;
     width: 23rem;
 }
 
 .screen {
-    background-color: white;
-    border: .125rem solid rgb(27, 27, 27);
-    border-radius: .31rem;
+    background-color:rgb(83, 83, 83);
     margin-bottom: 1.31rem;
     padding: .625rem 2.25rem;
+    gap: 0;
     text-align: right;
+    color: white;
     overflow-wrap: break-word;
 }
 
@@ -46,8 +48,8 @@ body {
 }
 
 .btn {
-    border-radius: .31rem;
-    border: .125rem solid rgb(27, 27, 27);
+    border-radius: .21rem;
+    border: .125rem solid lightgray;
     background-color: white;
     padding: 1.36rem;
     text-align: center;
@@ -55,6 +57,6 @@ body {
 }
 
 #clear {
-    background-color: blueviolet;
+    background-color: white;
     grid-column: span 4;
 }
