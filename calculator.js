@@ -68,10 +68,7 @@ decBtn.addEventListener('click', () => populateDecimal(decBtn.textContent));
 
 equalsBtn.addEventListener('click', () => operate(findOperator));
 
-clear.addEventListener('click', function clear() {
-    display.textContent = '0';
-    result.textContent = '';
-});
+clear.addEventListener('click', () => clearDisplay());
 
 function populateNumbers(n) {
     if(firstOperand.length <= 12 && !display.textContent.includes('+') && 
@@ -96,4 +93,12 @@ function populateDecimal(d) {
     if(display.textContent == '0')
     display.textContent = '';
     display.textContent += d;
+}
+
+function clearDisplay() {
+    display.textContent = '0';
+    result.textContent = '';
+    previousDisplay = '';
+    firstOperand = '';
+    secondOperand = '';
 }
