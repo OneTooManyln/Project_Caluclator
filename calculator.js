@@ -94,15 +94,19 @@ function populateOperators (o) {
     findOperator = o;
     previousDisplay = firstOperand + ' ' + findOperator;
     display.textContent = previousDisplay;
-    console.log(firstOperand);
+    console.log(firstOperand);        
+    console.log(previousDisplay);
 }
 
 function populateDecimal(d) {
-    if(display.textContent == '0')
-    display.textContent = '';
-    display.textContent += d;
+    if(!firstOperand.includes('.') && !previousDisplay.includes(' ')) {
+        firstOperand += d;
+        display.textContent = firstOperand;
+    } else if(firstOperand != '') {
+        secondOperand += d;
+        display.textContent = previousDisplay + ' ' +secondOperand;
+    } 
 }
-
 function clearDisplay() {
     display.textContent = '0';
     result.textContent = '';
