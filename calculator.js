@@ -70,7 +70,11 @@ opBtn.forEach((opBtn) => {
 
 decBtn.addEventListener('click', () => populateDecimal(decBtn.textContent));
 
-equalsBtn.addEventListener('click', () => operate(findOperator));
+equalsBtn.addEventListener('click', () => {
+    if(firstOperand != '' && secondOperand != '') {
+        operate(findOperator)
+    }
+});
 
 clear.addEventListener('click', () => clearDisplay());
 
